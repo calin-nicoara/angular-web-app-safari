@@ -15,4 +15,9 @@ export class AppComponent {
         var selectedBook = this.booksList.filter(book => book.isbn === isbn);
         this.selectedBook = selectedBook[0];
     }
+
+    deleteBook(isbn: number) {
+        this.selectedBook = null;
+        this.booksList = this.booksList.filter(book => book.isbn !== isbn)
+    }
 }
