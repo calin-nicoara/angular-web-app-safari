@@ -1,23 +1,31 @@
-<h3 class="title">Books List</h3>
-<div class="border-divider"></div>
-<div class="row">
-  <div class="col-xs-4">
-    <ul class="list">
-      <li class="list-item row" *ngFor="let book of booksList"
-      (click)="getBookDetails(book.isbn)">
-        <div class="cover-image-container col-xs-2">
-          <span class="cover-image">
-            <img [src]="book.coverImage" alt="cover image">
-          </span>
-        </div>
-        <div class="col-xs-10">
-          <h3 class="book-title">{{book.title}}</h3>
-          <h4 class="book-author">{{book.authors}}</h4>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <div class="col-xs-8">
-    <book-details [myBook]="selectedBook" (deleteMyBook)="deleteBook($event)"></book-details>
-  </div>
+<!--<h3 class="title">Books List</h3>-->
+<!--<div class="border-divider"></div>-->
+<!--<div class="row">-->
+  <!--<div class="col-xs-4">-->
+    <!--<ul class="list">-->
+      <!--<li class="list-item row" *ngFor="let book of booksList"-->
+      <!--(click)="getBookDetails(book.isbn)">-->
+        <!--<div class="cover-image-container col-xs-2">-->
+          <!--<span class="cover-image">-->
+            <!--<img [src]="book.coverImage" alt="cover image">-->
+          <!--</span>-->
+        <!--</div>-->
+        <!--<div class="col-xs-10">-->
+          <!--<h3 class="book-title">{{book.title}}</h3>-->
+          <!--<h4 class="book-author">{{book.authors}}</h4>-->
+        <!--</div>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+  <!--<div class="col-xs-8">-->
+    <!--<book-details [myBook]="selectedBook" (deleteMyBook)="deleteBook($event)"></book-details>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<div class="row">-->
+  <!--<app-observable-example></app-observable-example>-->
+<!--</div>-->
+
+<div class="container">
+  <app-book-search (search)="searchBook($event)"></app-book-search>
+  <app-book-list [books]="filteredBooks"></app-book-list>
 </div>

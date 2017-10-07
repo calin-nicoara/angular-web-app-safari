@@ -1,23 +1,46 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BOOKS} from "./book/mock-books";
 import {Book} from "./book/book";
+import {BookStoreService} from "./book/book-store.service";
+import {ConsoleLoggerService} from "./console/console-logger.service";
 
 @Component({
-    selector: 'books-list',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+  selector: 'app-main',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  providers: [ConsoleLoggerService, BookStoreService]
 })
-export class AppComponent {
-    booksList: Book[] = BOOKS;
-    selectedBook: Book;
+export class AppComponent implements OnInit {
+  filteredBooks: Book[];
+  booksList: Book[] = BOOKS;
+  selectedBook: Book;
 
-    getBookDetails(isbn: number) {
-        var selectedBook = this.booksList.filter(book => book.isbn === isbn);
-        this.selectedBook = selectedBook[0];
-    }
+  constructor(private bookStoreService: BookStoreService) {
+  }
 
-    deleteBook(isbn: number) {
-        this.selectedBook = null;
-        this.booksList = this.booksList.filter(book => book.isbn !== isbn)
-    }
+  ngOnInit() {
+    this.getBooksList();
+  }
+
+  getBooksList() {
+    this.booksList = this.bookStoreService.getBooks();
+  }
+
+  getBookDetails(isbn: number) {
+    this.selectedBook = this.bookStoreService.getBook(isbn);
+  }
+
+  deleteBook(isbn: number) {
+    this.selectedBook = null;
+    this.booksList = this.bookStoreService.deleteBook(isbn);
+  }
+
+  searchBook(title: string) {
+    this.bookStoreService
+      .getBooksByTitle(title)
+      .subscribe(books => {
+        console.log('Fuck this shit:', books);
+        this.filteredBooks = books;
+      });
+  }
 }
