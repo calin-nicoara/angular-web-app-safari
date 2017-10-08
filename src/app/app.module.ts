@@ -7,6 +7,7 @@ import {BookDetailsComponent} from "./book/book-details.component";
 import { ObservableExampleComponent } from './observable-example/observable-example.component';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { BookListComponent } from './book-list/book-list.component';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,8 @@ import { BookListComponent } from './book-list/book-list.component';
         BookDetailsComponent,
         ObservableExampleComponent,
         BookSearchComponent,
-        BookListComponent
+        BookListComponent,
+        RegistrationFormComponent
     ],
     imports: [
         BrowserModule, FormsModule
