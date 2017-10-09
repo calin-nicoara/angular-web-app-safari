@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -8,6 +8,7 @@ import { ObservableExampleComponent } from './observable-example/observable-exam
 import { BookSearchComponent } from './book-search/book-search.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { RegistrationReactiveFormComponent } from './registration-reactive-form/registration-reactive-form.component';
 
 @NgModule({
     declarations: [
@@ -16,10 +17,11 @@ import { RegistrationFormComponent } from './registration-form/registration-form
         ObservableExampleComponent,
         BookSearchComponent,
         BookListComponent,
-        RegistrationFormComponent
+        RegistrationFormComponent,
+        RegistrationReactiveFormComponent
     ],
     imports: [
-        BrowserModule, FormsModule
+        BrowserModule, FormsModule, ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 
+interface User {
+  firstName: string;
+  lastName: string;
+}
+
 @Component({
   selector: 'app-registration-form',
   templateUrl: './registration-form.component.html',
   styleUrls: ['./registration-form.component.scss']
 })
-export class RegistrationFormComponent implements OnInit {
+export class RegistrationFormComponent {
+  user: User = {
+    firstName: 'Shravan',
+    lastName: 'kasagoni'
+  };
 
-  constructor() { }
-
-  ngOnInit() {
+  onSubmit(formValue) {
+    console.log(formValue);
   }
 
 }
