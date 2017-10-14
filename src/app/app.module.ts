@@ -1,30 +1,23 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {NgModule} from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import {AppComponent} from './app.component';
-import {BookDetailsComponent} from "./book/book-details.component";
-import { ObservableExampleComponent } from './observable-example/observable-example.component';
-import { BookSearchComponent } from './book-search/book-search.component';
-import { BookListComponent } from './book-list/book-list.component';
-import { RegistrationFormComponent } from './registration-form/registration-form.component';
-import { RegistrationReactiveFormComponent } from './registration-reactive-form/registration-reactive-form.component';
+import { AppComponent } from './app.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookStoreService } from './book-store.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        BookDetailsComponent,
-        ObservableExampleComponent,
-        BookSearchComponent,
-        BookListComponent,
-        RegistrationFormComponent,
-        RegistrationReactiveFormComponent
-    ],
-    imports: [
-        BrowserModule, FormsModule, ReactiveFormsModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    BookDetailsComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [BookStoreService],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
