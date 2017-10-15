@@ -1,0 +1,25 @@
+<div class="books-list-title">
+  <h4 class="">Books List</h4>
+</div>
+<div class="content-container">
+  <div class="mdl-grid books-list-grid">
+    <div class="mdl-cell mdl-cell--3-col books-list-grid-left-col">
+      <ul class="list">
+        <li class="list-item" *ngFor="let book of booksList" (click)="getBookDetails(book.id)">
+          <div class="cover-image-container">
+                <span class="cover-image">
+                  <img [src]="book.coverImage" alt="cover image"/>
+                </span>
+          </div>
+          <div class="clear">
+            <div class="book-title">{{book.title}}</div>
+            <div class="book-author">{{book.authors}}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="mdl-cell mdl-cell--9-col books-list-grid-right-col">
+      <book-details [book]="selectedBook" (onDelete)="deleteBook($event)"></book-details>
+    </div>
+  </div>
+</div>
