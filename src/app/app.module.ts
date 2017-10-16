@@ -9,6 +9,7 @@ import { BookStoreService } from './books/book-store.service';
 import { BookListComponent } from './books/book-list/book-list.component';
 import {AppRouterModule} from "./app-router.module";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {BookRouterModule} from "./books/book-router-module";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRouterModule
+    AppRouterModule,
+    BookRouterModule
   ],
   providers: [BookStoreService],
   bootstrap: [AppComponent]
